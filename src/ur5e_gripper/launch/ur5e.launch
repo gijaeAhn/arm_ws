@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+   <!-- Load the urdf into the parameter server. -->
+   <param name="my_robot_description" textfile="$(find ur5e_gripper)/urdf/ur5e_with_gripper.urdf"/>
+    
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+      <remap from="robot_description" to="my_robot_description" />
+    </node>
+  </launch>

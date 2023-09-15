@@ -1,0 +1,8 @@
+prefix=/home/sj/Desktop/arm_ws/install
+
+Name: ur5e_gripper
+Description: Description of ur5e_gripper
+Version: 0.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs geometry_msgs message_runtime sensor_msgs
