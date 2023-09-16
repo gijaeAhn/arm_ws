@@ -1,8 +1,8 @@
-# Install script for directory: /home/sj/Desktop/arm_ws/src/ur5e_gripper
+# Install script for directory: /home/gj/Desktop/arm_ws/src/ur5e_gripper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/sj/Desktop/arm_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/gj/Desktop/arm_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,53 +38,53 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/msg" TYPE FILE FILES "/home/sj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/msg" TYPE FILE FILES "/home/gj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/cmake" TYPE FILE FILES "/home/sj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripper-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/cmake" TYPE FILE FILES "/home/gj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripper-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/sj/Desktop/arm_ws/devel/include/ur5e_gripper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/gj/Desktop/arm_ws/devel/include/ur5e_gripper")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/sj/Desktop/arm_ws/devel/share/common-lisp/ros/ur5e_gripper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/gj/Desktop/arm_ws/devel/share/common-lisp/ros/ur5e_gripper")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/sj/Desktop/arm_ws/devel/share/gennodejs/ros/ur5e_gripper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/gj/Desktop/arm_ws/devel/share/gennodejs/ros/ur5e_gripper")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/sj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/gj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/sj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/gj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripper.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/gj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripper.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/cmake" TYPE FILE FILES "/home/sj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripper-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/cmake" TYPE FILE FILES "/home/gj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripper-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper/cmake" TYPE FILE FILES
-    "/home/sj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripperConfig.cmake"
-    "/home/sj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripperConfig-version.cmake"
+    "/home/gj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripperConfig.cmake"
+    "/home/gj/Desktop/arm_ws/build/ur5e_gripper/catkin_generated/installspace/ur5e_gripperConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper" TYPE FILE FILES "/home/sj/Desktop/arm_ws/src/ur5e_gripper/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_gripper" TYPE FILE FILES "/home/gj/Desktop/arm_ws/src/ur5e_gripper/package.xml")
 endif()
 

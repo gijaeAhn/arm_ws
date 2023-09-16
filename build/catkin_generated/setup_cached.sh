@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/sj/Desktop/arm_ws/devel:$CMAKE_PREFIX_PATH"
-export PWD='/home/sj/Desktop/arm_ws/build'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/sj/Desktop/arm_ws/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/sj/Desktop/arm_ws/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/gj/Desktop/arm_ws/devel:$CMAKE_PREFIX_PATH"
+export PWD='/home/gj/Desktop/arm_ws/build'
+export ROSLISP_PACKAGE_DIRECTORIES='/home/gj/Desktop/arm_ws/devel/share/common-lisp'
+export ROS_PACKAGE_PATH="/home/gj/Desktop/arm_ws/src:$ROS_PACKAGE_PATH"

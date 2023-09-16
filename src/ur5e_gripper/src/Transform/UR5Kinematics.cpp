@@ -33,38 +33,47 @@ Transform UR5e_forward_kinematics(double *q){
 std::vector<double> UR5e_inverse_kinematics(Transform trArm,const double *qOrg, bool wrist_2_Flipped){
     std::vector<double> Joint_Position(6);
     double shoulder_pan_joint, shoulder_lift_joint, elbow_joint, wrist_1_joint, wrist_2_joint, wrist_3_joint;
-    double handOffsetZ = handLength + toolOffsetZ;
-    trArm = trArm.translate(0,0,0);                  //TCP Position
+    double handOffsetZ = handLength + toolOffsetZ;                 //TCP Position
     // trArm = trArm.translateZ(-toolOffsetZ);                             //Tool0 Position
-    printTransform(trArm);
+    printTransform (trArm);
+
     Transform t1;
+    Transform t_temp;
     t1.clear();
-    t1 = t1.translateZ(-shoulderOffsetZ)*trArm.translateZ(-toolOffsetZ);
-    printTransform(t1);
+    t_temp.clear();
+    t1 = 
+    t1
+        .translateZ(-shoulderOffsetZ)
+        *trArm
+        .translateZ(-toolOffsetZ);
+    printTransform (trArm);
+
+   
     double E_p[3]; t1.apply0(E_p);
-    cout << E_p[0] << " and " << E_p[1] << endl;                                       //EE relative to shoulder_pan_joint
+    double E_dis = sqrt(E_p[1]*+E_p[1]+E_p[0]*E_p[0]);
 
     t1 = t1.translateZ(-handLength);
     double Wrist_p[3]; t1.apply0    (Wrist_p);                                 //Wrist Position relative to shoulder_pan_joint    Wrist Position = wrist_2_link frame
-    cout << Wrist_p[0] << " and " << Wrist_p[1] << endl;
     double shoulder_wrist_2D = sqrt(Wrist_p[0]*Wrist_p[0] + Wrist_p[1]*Wrist_p[1]);
-    cout << shoulder_wrist_2D << endl;
+
+
     double yaw_offset = asin(wrist1/shoulder_wrist_2D);
-    cout <<yaw_offset << endl;
     double shoulder_pan_joint_xy = atan2(Wrist_p[1],Wrist_p[0]) - yaw_offset;
     shoulder_pan_joint = atan2(Wrist_p[1],Wrist_p[0]) - yaw_offset- PI;
-    cout << shoulder_pan_joint <<endl;
-    mod_angle(shoulder_pan_joint);
-    cout << shoulder_pan_joint <<endl;
-    
-    double E_dis = sqrt(E_p[1]*+E_p[1]+E_p[0]*E_p[0]);
-    double E_angle = atan2(E_p[1],E_p[0]) - PI;
+    t_temp = t_temp.rotateZ(-shoulder_pan_joint)*t1;
+    shoulder_pan_joint = mod_angle(shoulder_pan_joint);
+
+    double E_angle;
+    if(E_p[1] >0) E_angle = mod_angle(atan2(E_p[1],E_p[0])) ;
+    else E_angle = mod_angle(atan2(E_p[1],E_p[0])+PI);
+    if (E_p[1]>0) E_angle -= PI;
+
     double cwr = (E_dis*sin(E_angle-shoulder_pan_joint)-wrist1)/handLength;
     if(cwr > 1.0)  cwr =  1.0;
     if(cwr < -1.0) cwr = -1.0;
-    wrist_2_joint = acos(cwr);
-    if(wrist_2_Flipped) wrist_2_joint = -wrist_2_joint;
-    cout << wrist_2_joint << endl;                                  ///Not Conclusive
+    wrist_2_joint = abs(acos(cwr));      //This wrist_2_joint angle is abs value
+    if(t_temp(0,2) > 0) wrist_2_joint = -wrist_2_joint; 
+                              //Not Conclusive
 
 
 
@@ -133,58 +142,83 @@ std::vector<double> UR5e_inverse_kinematics(Transform trArm,const double *qOrg, 
 
         return Joint_Position;
     }
-    printTransform(trArm);
     Transform t3;
     t3.clear();
-    printTransform(t3);
+
     t3 =t3
         .rotateX(-PI/2)
         .rotateZ(-shoulder_pan_joint)
         .translateZ(-shoulderOffsetZ)
         *trArm;
                                      //T2 to T6
+    printTransform(trArm);
+    cout << "??" << endl;
+    wrist_3_joint = atan2(-t3(2,1)/sin(wrist_2_joint),t3(2,0)/sin(wrist_2_joint))  ;           //Now we found 1,5,6 Joint
+    Transform trArm_what;
+    trArm_what = trArm;
+    Transform trArm_what2;
+    trArm_what2 = trArm;
 
-    printTransform(t3);
-    wrist_3_joint = atan2(-t3(2,1)/sin(wrist_2_joint),t3(2,0)/sin(wrist_2_joint))  ;           //We found 1,5,6 Joint
-    
     Transform t4;
     t4.clear();
     t4=
-    t4
+    t4  
+        .rotateX(-PI/2)
         .rotateZ(-shoulder_pan_joint)
         .translateZ(-shoulderOffsetZ)
-        *trArm
+        *trArm_what
         .rotateZ(-wrist_3_joint)
         .translateZ(-handLength)
         .rotateX(PI/2)
         .translateZ(-wrist2)
         .rotateZ(-wrist_2_joint)                                                                 //T1 to T4 Matrix
-        .translateY(-wrist1);                                                                    //T1 to T3 Matrix wrist_1_joint not reflected
-    
+        .rotateX(-PI/2)
+        .translateZ(-wrist1);                                                                   //T1 to T3 Matrix wrist_1_joint not reflected
+    printTransform(trArm);
     double T1_T3_p[3]; t4.apply0(T1_T3_p);
 
-    elbow_joint = acos((T1_T3_p[0]*T1_T3_p[0]+T1_T3_p[1]*T1_T3_p[1] - upperArmLength*upperArmLength - lowerArmLength*lowerArmLength)/2*upperArmLength*lowerArmLength);
-    shoulder_lift_joint = -atan2(T1_T3_p[1],-T1_T3_p[0])+asin(upperArmLength/sqrt(T1_T3_p[0]*T1_T3_p[0]+T1_T3_p[1]*T1_T3_p[1]));
+    elbow_joint = acos((T1_T3_p[0]*T1_T3_p[0]+T1_T3_p[1]*T1_T3_p[1] - upperArmLength*upperArmLength - lowerArmLength*lowerArmLength)/(2*upperArmLength*lowerArmLength));
+    double gamma = atan2(T1_T3_p[1],-T1_T3_p[0]);
+    double beta = acos((-upperArmLength*upperArmLength +(T1_T3_p[0]*T1_T3_p[0]+T1_T3_p[1]*T1_T3_p[1])  +(lowerArmLength*lowerArmLength))/(2*sqrt(T1_T3_p[0]*T1_T3_p[0]+T1_T3_p[1]*T1_T3_p[1])*lowerArmLength));
 
+    shoulder_lift_joint = -(gamma+beta);
+                                             //This Soulution is only for elbow_joint<0
+    
+    printTransform(trArm_what);
     Transform t5;
     t5.clear();
+    cout << "hello" << endl;
+    printTransform(trArm);
+    printTransform(t5);
     t5=
-    t5
-        .translateX(lowerArmLength)
+    t5  
+        .rotateZ(-elbow_joint)
         .rotateZ(-shoulder_lift_joint)
         .rotateX(-PI/2)
         .rotateZ(-shoulder_pan_joint)
-        .translateZ(-shoulderOffsetZ)
-        *trArm
+        *trArm_what2
         .rotateZ(-wrist_3_joint)
-        .translateZ(-handLength)
         .rotateX(PI/2)
-        .translateZ(-wrist2)
         .rotateZ(-wrist_2_joint)                                                                
-        .translateY(-wrist1);                                                                     //T3 to T4 Matrix
+        .rotateX(-PI/2);
+    printTransform(t5);
+    cout << " can I ?" <<endl;
+    printTransform(trArm_what2);
+    Transform t6;
+    t6.clear();
+    t6= 
+    t6
+        .rotateX(-PI/2)
+        .rotateZ(-shoulder_pan_joint)
+        *trArm_what2
+        .rotateZ(-wrist_3_joint)
+        .rotateX(PI/2)
+        .rotateZ(-wrist_2_joint)                                                                
+        .rotateX(-PI/2);                                                               //T3 to T4 Matrix
     
-
-      wrist_1_joint = atan2(t5(0,1),t5(0,0));
+    printTransform(t6);
+    wrist_1_joint= -atan2(t5(0,1),t5(0,0)) ;
+    
 
 
       

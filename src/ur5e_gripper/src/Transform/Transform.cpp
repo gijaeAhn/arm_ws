@@ -141,16 +141,6 @@ Transform& Transform::rotateDotZ(double a) {
 
 
 Transform& Transform::mDH(double alpha, double a, double theta, double d) {
-  /*
-  Transform t1;
-  double ca = cos(alpha);
-  double sa = sin(alpha);
-  double ct = cos(theta);
-  double st = sin(theta);
-  t1(0,0) = ct; t1(0,1) = -st; t1(0,2) = 0; t1(0,3) = a;
-  t1(1,0) = st*ca; t1(1,1) = ct*ca; t1(1,2) = -sa; t1(1,3) = -sa*d;
-  t1(2,0) = st*sa; t1(2,1) = ct*sa; t1(2,2) = ca; t1(2,3) = ca*d;
-  */
 
   this->translateX(a).rotateX(alpha).translateZ(d).rotateZ(theta);
   return *this;
@@ -302,4 +292,41 @@ void printVector(std::vector<double> v) {
     printf("%.4g\n", v[i]);
   }
   printf("\n");
+}
+
+
+std::vector<double> position6D(const Transform &t1) {
+  std::vector<double> p(6);
+  p[0] = t1(0,3);
+  p[1] = t1(1,3);
+  p[2] = t1(2,3);
+
+  //ZYX Tait-bryan euler angle (rotZ -> rotY -> rotX )
+
+  //atan2 (R32, R33) : yaw
+  //-asin(R31) : pitch
+  //atan2 (R21, R11) : roll
+
+  p[3] = atan2(t1(2,1), t1(2,2)); //roll
+  p[4] = -asin(t1(2,0)); //pitch
+  p[5] = atan2(t1(1,0), t1(0,0)); //yaw
+
+  //TODO: singular when p[4]=pi/2 or -pi/2
+
+  if (1.0-t1(2,0)<1E-6){
+    // printf("SINGULAR1!!!\n");
+    p[3]=atan2(-t1(1,2),t1(1,1));
+    p[4]=-M_PI/2.0;
+    p[5] = 0.0;
+
+  }
+
+  if ( t1(2,0)+1.0<1E-6)  {
+    // printf("SINGULAR2!!!\n");
+    p[3]=atan2(-t1(1,2),t1(1,1));
+    p[4]=M_PI/2.0;
+    p[5] = 0.0;
+
+  }
+  return p;
 }

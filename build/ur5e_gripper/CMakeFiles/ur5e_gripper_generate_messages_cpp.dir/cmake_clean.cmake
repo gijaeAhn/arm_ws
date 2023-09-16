@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/sj/Desktop/arm_ws/devel/include/ur5e_gripper/JointState.h"
+  "/home/gj/Desktop/arm_ws/devel/include/ur5e_gripper/JointState.h"
   "CMakeFiles/ur5e_gripper_generate_messages_cpp"
 )
 

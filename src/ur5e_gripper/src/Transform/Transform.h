@@ -50,7 +50,7 @@ Transform transformQuatP(const double q[7]);
 void getAngularVelocityTensor(const Transform &adot, const Transform &ainv,double *av);
 void printTransform(Transform t);
 void printVector(std::vector<double> v);
-
+std::vector<double> position6D(const Transform &t1);
 class Jacobian{
 public:
     Jacobian();

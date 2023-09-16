@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sj/Desktop/arm_ws/src
+CMAKE_SOURCE_DIR = /home/gj/Desktop/arm_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sj/Desktop/arm_ws/build
+CMAKE_BINARY_DIR = /home/gj/Desktop/arm_ws/build
 
 # Utility rule file for _ur5e_gripper_generate_messages_check_deps_JointState.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/sj/Desktop/arm_ws/build
 include ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/progress.make
 
 ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState:
-	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py ur5e_gripper /home/sj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg std_msgs/Header
+	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py ur5e_gripper /home/gj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg std_msgs/Header
 
 _ur5e_gripper_generate_messages_check_deps_JointState: ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState
 _ur5e_gripper_generate_messages_check_deps_JointState: ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/build.make
@@ -67,10 +67,10 @@ ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.di
 .PHONY : ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/build
 
 ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/clean:
-	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/cmake_clean.cmake
+	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/cmake_clean.cmake
 .PHONY : ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/clean
 
 ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/depend:
-	cd /home/sj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sj/Desktop/arm_ws/src /home/sj/Desktop/arm_ws/src/ur5e_gripper /home/sj/Desktop/arm_ws/build /home/sj/Desktop/arm_ws/build/ur5e_gripper /home/sj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/gj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gj/Desktop/arm_ws/src /home/gj/Desktop/arm_ws/src/ur5e_gripper /home/gj/Desktop/arm_ws/build /home/gj/Desktop/arm_ws/build/ur5e_gripper /home/gj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ur5e_gripper/CMakeFiles/_ur5e_gripper_generate_messages_check_deps_JointState.dir/depend
 

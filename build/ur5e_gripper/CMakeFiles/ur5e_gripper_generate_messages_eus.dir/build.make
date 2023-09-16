@@ -43,33 +43,33 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sj/Desktop/arm_ws/src
+CMAKE_SOURCE_DIR = /home/gj/Desktop/arm_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sj/Desktop/arm_ws/build
+CMAKE_BINARY_DIR = /home/gj/Desktop/arm_ws/build
 
 # Utility rule file for ur5e_gripper_generate_messages_eus.
 
 # Include the progress variables for this target.
 include ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/progress.make
 
-ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus: /home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l
-ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus: /home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/manifest.l
+ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus: /home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l
+ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus: /home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/manifest.l
 
 
-/home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l: /home/sj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg
-/home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sj/Desktop/arm_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from ur5e_gripper/JointState.msg"
-	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg -Iur5e_gripper:/home/sj/Desktop/arm_ws/src/ur5e_gripper/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p ur5e_gripper -o /home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg
+/home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l: /home/gj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg
+/home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/gj/Desktop/arm_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from ur5e_gripper/JointState.msg"
+	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/gj/Desktop/arm_ws/src/ur5e_gripper/msg/JointState.msg -Iur5e_gripper:/home/gj/Desktop/arm_ws/src/ur5e_gripper/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p ur5e_gripper -o /home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg
 
-/home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sj/Desktop/arm_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for ur5e_gripper"
-	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper ur5e_gripper std_msgs geometry_msgs
+/home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/gj/Desktop/arm_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for ur5e_gripper"
+	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper ur5e_gripper std_msgs geometry_msgs
 
 ur5e_gripper_generate_messages_eus: ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus
-ur5e_gripper_generate_messages_eus: /home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l
-ur5e_gripper_generate_messages_eus: /home/sj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/manifest.l
+ur5e_gripper_generate_messages_eus: /home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/msg/JointState.l
+ur5e_gripper_generate_messages_eus: /home/gj/Desktop/arm_ws/devel/share/roseus/ros/ur5e_gripper/manifest.l
 ur5e_gripper_generate_messages_eus: ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/build.make
 
 .PHONY : ur5e_gripper_generate_messages_eus
@@ -80,10 +80,10 @@ ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/build: ur5e_gripp
 .PHONY : ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/build
 
 ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/clean:
-	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/ur5e_gripper_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/ur5e_gripper_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/clean
 
 ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/depend:
-	cd /home/sj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sj/Desktop/arm_ws/src /home/sj/Desktop/arm_ws/src/ur5e_gripper /home/sj/Desktop/arm_ws/build /home/sj/Desktop/arm_ws/build/ur5e_gripper /home/sj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/gj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gj/Desktop/arm_ws/src /home/gj/Desktop/arm_ws/src/ur5e_gripper /home/gj/Desktop/arm_ws/build /home/gj/Desktop/arm_ws/build/ur5e_gripper /home/gj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_eus.dir/depend
 

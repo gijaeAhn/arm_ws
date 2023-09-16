@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sj/Desktop/arm_ws/src
+CMAKE_SOURCE_DIR = /home/gj/Desktop/arm_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sj/Desktop/arm_ws/build
+CMAKE_BINARY_DIR = /home/gj/Desktop/arm_ws/build
 
 # Utility rule file for tf_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/build: tf_generate_message
 .PHONY : ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/build
 
 ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/clean:
-	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/clean
 
 ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/depend:
-	cd /home/sj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sj/Desktop/arm_ws/src /home/sj/Desktop/arm_ws/src/ur5e_gripper /home/sj/Desktop/arm_ws/build /home/sj/Desktop/arm_ws/build/ur5e_gripper /home/sj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/gj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gj/Desktop/arm_ws/src /home/gj/Desktop/arm_ws/src/ur5e_gripper /home/gj/Desktop/arm_ws/build /home/gj/Desktop/arm_ws/build/ur5e_gripper /home/gj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ur5e_gripper/CMakeFiles/tf_generate_messages_lisp.dir/depend
 
