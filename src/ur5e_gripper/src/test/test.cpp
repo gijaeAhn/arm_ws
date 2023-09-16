@@ -1,22 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <math.h>
 int main(){
-    std::vector<double> q;
-    std::vector<double> t;
-    t.push_back(1);
-    t.push_back(2);
-    t.push_back(3);
-    t.push_back(4);
-    t.push_back(5);
-    t.push_back(6);
-    q.resize(t.size());
-    std::copy(t.begin(),t.end(),q.begin());
+    double test = sqrt(((-0.69198-(-0.64005))*(-0.69198-(-0.64005)))+
+                       ((0.28225-(0.36293))*(0.28225-(0.36293)))+
+                       ((0.59212-(0.61887))*(0.59212-(0.61887))));
 
-    std::cout << sizeof(t) <<std::endl;
-    for (int i = 0 ; i < sizeof(t); i++){
-        std::cout << q[i] << std::endl;
-    }
-
+    std::cout << test << std::endl;
 }
 

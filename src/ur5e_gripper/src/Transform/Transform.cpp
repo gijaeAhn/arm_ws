@@ -287,10 +287,10 @@ void getAngularVelocityTensor(const Transform &adot, const Transform &ainv, doub
 
 
 
-void printTransform(Transform tr) {
+void printTransform(Transform t) {
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
-      printf("%.4g ", tr(i,j));
+      printf("%.4g ", t(i,j));
     }
     printf("\n");
   }

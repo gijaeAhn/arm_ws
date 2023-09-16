@@ -48,7 +48,7 @@ Transform transformQuatP(const double q[7]);
 // std::vector<double> to_quatp(const Transform &t);
 
 void getAngularVelocityTensor(const Transform &adot, const Transform &ainv,double *av);
-void printTransform(Transform tr);
+void printTransform(Transform t);
 void printVector(std::vector<double> v);
 
 class Jacobian{
