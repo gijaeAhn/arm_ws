@@ -25,6 +25,6 @@ const double upperArmEff=sqrt(upperArmLength*upperArmLength);
 
 double mod_angle(double q);
 Transform UR5e_forward_kinematics(double *q);
-std::vector<double>UR5e_inverse_kinematics(Transform trArm, const double *qOrg, bool wrist_2_Flipped);
+std::vector<double>UR5e_inverse_kinematics(Transform tr, const double *qOrg, bool wrist_2_Flipped);
 
 #endif

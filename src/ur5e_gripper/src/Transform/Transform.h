@@ -11,7 +11,7 @@
 
 class Transform {
 public:
-    Transform(){}
+    Transform() {clear();}
     virtual ~Transform() {}
     void clear();
     Transform &translate(double x, double y, double z);
