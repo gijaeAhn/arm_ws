@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/gj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper/msg/_JointState.py"
-  "/home/gj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper/msg/__init__.py"
+  "/home/sj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper/msg/_JointState.py"
+  "/home/sj/Desktop/arm_ws/devel/lib/python3/dist-packages/ur5e_gripper/msg/__init__.py"
   "CMakeFiles/ur5e_gripper_generate_messages_py"
 )
 

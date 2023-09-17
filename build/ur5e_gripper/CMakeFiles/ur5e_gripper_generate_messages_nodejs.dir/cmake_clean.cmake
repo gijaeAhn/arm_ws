@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/gj/Desktop/arm_ws/devel/share/gennodejs/ros/ur5e_gripper/msg/JointState.js"
+  "/home/sj/Desktop/arm_ws/devel/share/gennodejs/ros/ur5e_gripper/msg/JointState.js"
   "CMakeFiles/ur5e_gripper_generate_messages_nodejs"
 )
 

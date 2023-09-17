@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/gj/Desktop/arm_ws/src
+CMAKE_SOURCE_DIR = /home/sj/Desktop/arm_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/gj/Desktop/arm_ws/build
+CMAKE_BINARY_DIR = /home/sj/Desktop/arm_ws/build
 
 # Utility rule file for tf_generate_messages_py.
 
@@ -63,10 +63,10 @@ ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/build: tf_generate_messages_
 .PHONY : ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/build
 
 ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/clean:
-	cd /home/gj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/sj/Desktop/arm_ws/build/ur5e_gripper && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/clean
 
 ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/depend:
-	cd /home/gj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gj/Desktop/arm_ws/src /home/gj/Desktop/arm_ws/src/ur5e_gripper /home/gj/Desktop/arm_ws/build /home/gj/Desktop/arm_ws/build/ur5e_gripper /home/gj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sj/Desktop/arm_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sj/Desktop/arm_ws/src /home/sj/Desktop/arm_ws/src/ur5e_gripper /home/sj/Desktop/arm_ws/build /home/sj/Desktop/arm_ws/build/ur5e_gripper /home/sj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ur5e_gripper/CMakeFiles/tf_generate_messages_py.dir/depend
 
