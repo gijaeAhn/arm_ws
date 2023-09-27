@@ -2,11 +2,22 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
-int main(){
-    double test = sqrt(((-0.69198-(-0.64005))*(-0.69198-(-0.64005)))+
-                       ((0.28225-(0.36293))*(0.28225-(0.36293)))+
-                       ((0.59212-(0.61887))*(0.59212-(0.61887))));
 
-    std::cout << test << std::endl;
+void change_list(const int reference[3], int target[3]){
+    for ( int i =0; i <3 ; i++){
+        target[i] = (reference[i] >> 1);
+    }
+}
+
+int main(){
+    int new_list[3] = { 0,0,0};
+    int refer_list[3] = { 1, 2, 3};
+
+    change_list(refer_list, new_list);
+    for(int i =0 ; i < 3 ; i ++){
+        std::cout << new_list[i] << std::endl;
+    }
+
+    int i = 0 ;
 }
 
