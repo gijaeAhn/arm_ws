@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+//Some problems in it
+//Transform matrix changes when calculations come after the Matrix
 
 class Transform {
 public:

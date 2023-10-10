@@ -78,6 +78,9 @@
         "csignal": "cpp",
         "regex": "cpp",
         "future": "cpp",
-        "valarray": "cpp"
-    }
+        "valarray": "cpp",
+        "*.ipp": "cpp",
+        "alignedvector3": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

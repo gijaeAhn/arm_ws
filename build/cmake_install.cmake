@@ -131,6 +131,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/sj/Desktop/arm_ws/build/gtest/cmake_install.cmake")
+  include("/home/sj/Desktop/arm_ws/build/octomap_mapping/octomap_mapping/cmake_install.cmake")
+  include("/home/sj/Desktop/arm_ws/build/octomap_mapping/octomap_server/cmake_install.cmake")
   include("/home/sj/Desktop/arm_ws/build/ur5e_gripper/cmake_install.cmake")
 
 endif()

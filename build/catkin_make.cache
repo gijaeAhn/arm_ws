@@ -1,2 +1,2 @@
-ur5e_gripper
+octomap_mapping/octomap_mapping:octomap_mapping/octomap_server:ur5e_gripper
 -DCATKIN_DEVEL_PREFIX=/home/sj/Desktop/arm_ws/devel -DCMAKE_INSTALL_PREFIX=/home/sj/Desktop/arm_ws/install -G Unix Makefiles
