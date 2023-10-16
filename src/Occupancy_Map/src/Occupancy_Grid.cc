@@ -3,14 +3,14 @@
 
 namespace occupancygrid
 {
-OccupancyGrid::OccupancyGrid(const double origin[3], const double world_dimensions, const double resolution, const double threshold)
-: voxelgrid::VoxelGrid<float>(origin,world_dimesions,resolution)
+OccupancyGrid::OccupancyGrid(const double origin[3], const double world_dimensions[3], const double resolution, const double threshold)
+: voxelgrid::VoxelGrid<float>(origin,world_dimensions,resolution)
 {
     Threshold_ = threshold;
 }
 
 
-void OccupancyGrid::UpdateValue(cosnt double xyz[3], float value)
+void OccupancyGrid::UpdateValue(const double xyz[3], float value)
 {UpdateValue(WorldToIndex(xyz),value);}
 
 void OccupancyGrid::UpdateValue(const int ixyz[3], float value)
@@ -47,7 +47,7 @@ bool OccupancyGrid::OccupancyCheck(const double xyz[3])
     return Threshold_ < GetIndexData(index);
 }
 
-bool OccupancyGrid::OccupancyCheck(const double ixyz[3])
+bool OccupancyGrid::OccupancyCheck(const int ixyz[3])
 {
     int index = GridToIndex(ixyz);
     return Threshold_ < GetIndexData(index);
