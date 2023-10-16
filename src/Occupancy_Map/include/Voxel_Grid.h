@@ -261,4 +261,4 @@ void VoxelGrid<T>::PrintData()
 {for(int i =0; i<Cell_Num_; i++)
 std::cout << Data_[i] ;
 }
-}
+}// namespace end
