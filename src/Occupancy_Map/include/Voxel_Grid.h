@@ -18,13 +18,18 @@ class VoxelGrid {
     private:
 
     int First_Voxel[3];
-    int Grid_Dimensions_[3];
-    float Origin_[3];
+    
+    
     float Resolution_;
     float VoxelSize_=1;
     float Treshold_;
     int Cell_Num_;
     std::vector<T> Data_;
+
+    protected:
+    float Origin_[3];
+    int Grid_Dimensions_[3];
+
 
 
 
