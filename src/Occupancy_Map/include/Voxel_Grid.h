@@ -21,7 +21,7 @@ class VoxelGrid {
     int Grid_Dimensions_[3];
     float Origin_[3];
     float Resolution_;
-    float VoxelSize_;
+    float VoxelSize_=1;
     float Treshold_;
     int Cell_Num_;
     std::vector<T> Data_;
@@ -60,6 +60,7 @@ class VoxelGrid {
     void InitializeOrigin(const double origin[3]);
     int GetCellNum();
     void PrintData();
+    void CalcFirstVoxel(const double origin[3]);
 };
 
 
@@ -102,7 +103,8 @@ VoxelGrid<T>::VoxelGrid(const double origin[3], const int grid_dimensions[3], co
 
 template<typename T>
 T VoxelGrid<T>::GetIndexData(int index)
-{
+{   
+    if(index > Data_.size()) std::cout<< "Index is not in the range" << std::endl;
     return Data_[index];
 }
 
@@ -260,5 +262,13 @@ template<typename T>
 void VoxelGrid<T>::PrintData()
 {for(int i =0; i<Cell_Num_; i++)
 std::cout << Data_[i] ;
+}
+
+template<typename T>
+void VoxelGrid<T>::CalcFirstVoxel(const double origin)
+{   
+    int buf_voxel[3] = {0};
+    WorldToVoxel(origin,buf_voxel);
+    First_Voxel_[0] = buf_voxel[0] - (Grid_Dimensions_[0] >> 1);
 }
 }// namespace end

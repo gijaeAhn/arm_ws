@@ -43,6 +43,9 @@ class OccupancyGrid : public voxelgrid::VoxelGrid<float>
     float GetThreshold() const  { return Threshold_; }
     float Clamping(const int num, const float max, const float min);
 
+    void OccupancyCalc(const double xyz[3]);
+    void OccupancyCalc(const int ixyz[3]);
+    void OccupancyCalc(const int index);
 
 };    
     

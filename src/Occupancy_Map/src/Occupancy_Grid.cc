@@ -16,29 +16,8 @@ void OccupancyGrid::UpdateValue(const double xyz[3], float value)
 void OccupancyGrid::UpdateValue(const int ixyz[3], float value)
 {UpdateValue(GridToIndex(ixyz),value);}
 
-void OccupancyGrid::UpdateValue(const int index, float delta)
-{
-    float buf = GetIndexData(index);
-    if(buf <0)
-    {WriteValue(index,0.0f);
-    buf = 0.0f;}
-    bool  before_occupied = OccupancyCheck(index);
-    float new_value = Clamping(buf+delta,1,0);
-    WriteValue(index, new_value);
-    bool  after_occupied = OccupancyCheck(index);
-
-    double xyz[3];
-    if (!before_occupied && after_occupied)
-    {
-      IndexToWorld(index, xyz);
-      Marking_List_.push_back({ xyz[0], xyz[1], xyz[2] });
-    }   
-    if (before_occupied && !after_occupied)
-    {
-      IndexToWorld(index, xyz);
-      Clear_list_.push_back({ xyz[0], xyz[1], xyz[2] });
-    }
-}
+void OccupancyGrid::UpdateValue(const int index, float value)
+{WriteValue(index,value);}
 
 
 bool OccupancyGrid::OccupancyCheck(const double xyz[3])
