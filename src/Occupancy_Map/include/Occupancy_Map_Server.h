@@ -26,37 +26,52 @@
 #include <message_filters/subscriber.h>
 #include "Occupancy_Grid.h"
 
-typedef pcl::PointXYZ Point;
-typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
+
+typedef pcl::PointXYZ PCLPoint;
+typedef pcl::PointCloud<pcl::PointXYZ> PCLPointCloud;
 
 namespace occupancymapserver{
 
-class OccupancyMapServer : public occupancygrid::OccupancyGrid
+class OccupancyMapServer :
 {
     private :
 
+    occupancygrid::OccupancyGrid ocgrid_;
     ros::NodeHandle nh_;
     ros::NodeHandle pnh_;
 
     ros::Publisher markerPub_;
     message_filters::Subscriber<sensor_msgs::PointCloud2>* PointCloudSub_;
     tf::MessageFilter<sensor_msgs::PointCloud2>* tfPointCloudSub_;
-    tf::TransformListner tfListener;
+    tf::TransformListener tfListener;
 
-    double temp_worldDimension[3];
-    std::string camera_link_id_;
-    double groundDistance_, groundAngle_, xDistance,pointcloudMinZ_,pointcloudMaxZ_;
+    double bufworldDimension[3];
+    std::string cameraLink_id, worldFrame_id;
+    double groundDistance_, groundAngle_, xDistance_,pointcloudMinZ_,pointcloudMaxZ_;
    
     bool filterGroundPlane_;
+    
+    double bufThreshold_;
+    double bufResolution_;
+
+    double MinX, MinY, MinZ, MaxX, MaxY, MaxZ;
+
+    double bufOrigin_[3];
+
+
 
     public:
 
-    OccupancyMapServer(const ros::Nodehandle nh, const ros::Nodehandle pnh;);
+    OccupancyMapServer(const ros::NodeHandle nh, const ros::NodeHandle pnh,
+                       const double threshold, const double resolution);
 
-    void InsertPC(const sensor_msgs::PointCloud2::ConstPtr& msg);
-    void PublishOcMap(const ros::Time& rostime = ros::Time::now());
+                       
+    ~OccupancyMapServer();
+
+    
+    void insertCloudCallback(const sensor_msgs::PointCloud2::ConstPtr& msg);
+    void cloudToOcMap(const PCLPointCloud& pc);
 
 
-
-}
+};
 }

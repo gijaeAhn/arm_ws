@@ -1,0 +1,127 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"include",
+			"generate_messages",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/home/sj/Desktop/arm_ws/build/ur5e_gripper/cmake/ur5e_gripper-genmsg.cmake",
+			"/opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake",
+			"ur5e_gripper/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 307,
+				"parent" : 1
+			},
+			{
+				"file" : 0,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 145,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 246,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 249,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 152,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "std_msgs_generate_messages_nodejs::@f5885e5b61847389cb1c"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "geometry_msgs_generate_messages_nodejs::@f5885e5b61847389cb1c"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "_ur5e_gripper_generate_messages_check_deps_JointState::@f5885e5b61847389cb1c"
+		}
+	],
+	"id" : "ur5e_gripper_generate_messages_nodejs::@f5885e5b61847389cb1c",
+	"name" : "ur5e_gripper_generate_messages_nodejs",
+	"paths" : 
+	{
+		"build" : "ur5e_gripper",
+		"source" : "ur5e_gripper"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"isGenerated" : true,
+			"path" : "/home/sj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_nodejs",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/sj/Desktop/arm_ws/build/ur5e_gripper/CMakeFiles/ur5e_gripper_generate_messages_nodejs.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/sj/Desktop/arm_ws/devel/share/gennodejs/ros/ur5e_gripper/msg/JointState.js.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

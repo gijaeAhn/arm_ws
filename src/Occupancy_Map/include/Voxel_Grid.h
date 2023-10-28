@@ -20,26 +20,31 @@ class VoxelGrid {
     int First_Voxel[3];
     
     
-    float Resolution_;
-    float VoxelSize_=1;
-    float Treshold_;
+    
+    int VoxelSize_=1;
     int Cell_Num_;
-    std::vector<T> Data_;
+
+
+    
 
     protected:
     float Origin_[3];
     int Grid_Dimensions_[3];
-
+    std::vector<T> Data_;
+    double Resolution_;
+    double Threshold_;
 
 
 
     public:
 
+    
     VoxelGrid();
     VoxelGrid(const double origin[3], const double world_dimensions[3], const double resolution);
     VoxelGrid(const double origin[3], const double world_dimensions[3], const double resolution, const std::vector<T>& data);
     VoxelGrid(const double origin[3], const int grid_dimensions[3], const double resolution, const std::vector<T>& data);
     
+  
     T GetIndexData(int index);
     void GetState();
 
@@ -66,6 +71,10 @@ class VoxelGrid {
     int GetCellNum();
     void PrintData();
     void CalcFirstVoxel(const double origin[3]);
+
+    void getResoltuion(const double resolution);
+    void getThreshold(const double threshold);
+    void getGridDimesion(const double world_D[3], const double resolutuion);
 };
 
 
@@ -270,10 +279,24 @@ std::cout << Data_[i] ;
 }
 
 template<typename T>
-void VoxelGrid<T>::CalcFirstVoxel(const double origin)
+void VoxelGrid<T>::CalcFirstVoxel(const double origin[3])
 {   
     int buf_voxel[3] = {0};
     WorldToVoxel(origin,buf_voxel);
     First_Voxel_[0] = buf_voxel[0] - (Grid_Dimensions_[0] >> 1);
+}
+
+template<typename T>
+void VoxelGrid<T>::getResoltuion(const double resolution)
+{Resolution_ = resolution;}
+
+template<typename T>
+void VoxelGrid<T>::getThreshold(const double threshold)
+{Threshold_ = threshold;}
+
+template<typename T>
+void VoxelGrid<T>::getGridDimesion(const double world_D[3], const double resolution)
+{
+    for(int i = 0; i<3; i++) ocgrid_.Grid_Dimensions_[i] = static_cast<int>(world_D[i]*resolution);
 }
 }// namespace end
