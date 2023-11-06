@@ -12,15 +12,18 @@
 
 #include "Voxel_Grid.h"
 
-#include <pcl/conversions.h>
-#include <pcl/point_types.h>
+// #include <pcl/conversions.h>
+// #include <pcl/point_types.h>
 
 
 
 namespace occupancygrid
 {
 
-using Point = pcl::PointXYZ;
+typedef struct Point{
+    double data[3];
+    ~Point() {}
+}Point ;
 using PointList = std::vector<Point>;
 
 class OccupancyGrid : public voxelgrid::VoxelGrid<bool>
@@ -36,8 +39,8 @@ class OccupancyGrid : public voxelgrid::VoxelGrid<bool>
 
     public:
     OccupancyGrid();
-    OccupancyGrid(const double origin[3], const double world_dimensions[3], const double resolution, const double threshold);
-    void UpdateValue(const pcl::PointXYZ& point,bool value);
+    OccupancyGrid(const double origin[3], const double world_dimensions[3], const double resolution);
+    // void UpdateValue(const pcl::PointXYZ& point,bool value);
     void UpdateValue(const double xyz[3], bool value);
     void UpdateValue(const int ixyz[3], bool value);
     void UpdateValue(const int index, bool delta);
@@ -53,6 +56,9 @@ class OccupancyGrid : public voxelgrid::VoxelGrid<bool>
     void OccupancyCalc(const double xyz[3]);
     void OccupancyCalc(const int ixyz[3]);
     void OccupancyCalc(const int index);
+
+    void toMarkList(const int index);
+    void printMarkList();
     
     class Iterator
     {
@@ -62,7 +68,7 @@ class OccupancyGrid : public voxelgrid::VoxelGrid<bool>
 
         public:
             using iterator_category = std::forward_iterator_tag;
-            using value_type = float;
+            using value_type = bool;
             using difference_type = std::ptrdiff_t;
             using pointer = float*;
             using reference = float&;
@@ -85,6 +91,8 @@ class OccupancyGrid : public voxelgrid::VoxelGrid<bool>
             bool operator!=(const Iterator& other) const {
                 return !(*this ==other);
             }
+
+            int getIndex(){return index_;}
     };
 
     Iterator begin() {

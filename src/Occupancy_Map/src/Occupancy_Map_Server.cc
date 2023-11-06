@@ -29,7 +29,7 @@ OccupancyMapServer::OccupancyMapServer(const ros::NodeHandle nh, const ros::Node
 
     if(filterGroundPlane_ && (pointcloudMinZ_ >0 || pointcloudMinZ_ <0))
     {
-    ROS_WARN_STREAM("You enabled ground filtering but incoming pointclouds will be pre-filtered in ["
+    ROS_WARN_STREAM("Enabled ground filtering but incoming pointclouds will be pre-filtered in ["
               <<pointcloudMinZ_ <<", "<< pointcloudMaxZ_ << "], excluding the ground level z=0. "
               << "This will not work.");
     }

@@ -9,6 +9,9 @@
 #include <cstring>
 #include <iostream>
 
+#define M2CM  100
+#define CM2M  0.01
+
 
 
 namespace voxelgrid {
@@ -17,11 +20,11 @@ template<typename T>
 class VoxelGrid {
     private:
 
-    int First_Voxel[3];
+    int First_Voxel_[3];
     
     
     
-    int VoxelSize_=1;
+    int VoxelSize_;
     int Cell_Num_;
 
 
@@ -74,13 +77,14 @@ class VoxelGrid {
 
     void getResoltuion(const double resolution);
     void getThreshold(const double threshold);
-    void getGridDimesion(const double world_D[3], const double resolutuion);
+    void printFirstVoxel() const ;
+    // void getGridDimesion(const double world_D[3], const double resolutuion);
 };
 
 
 template<typename T>
 VoxelGrid<T>::VoxelGrid()
-:Cell_Num_(0),Treshold_(0),Resolution_(0),VoxelSize_(0.0) 
+:Cell_Num_(0),Threshold_(0),Resolution_(0),VoxelSize_(0.0) 
 {
     for(int i =0; i <3 ;++i){
         Grid_Dimensions_[i] = 0;
@@ -92,7 +96,7 @@ template<typename T>
 VoxelGrid<T>::VoxelGrid(const double origin[3], const double world_dimensions[3],const double resolution)
 :Resolution_(resolution)
 {
-    for(int i =0; i <3 ; i++) Grid_Dimensions_[i] = static_cast<int>(world_dimensions[i]*Resolution_);
+    for(int i =0; i <3 ; i++) Grid_Dimensions_[i] = static_cast<int>(world_dimensions[i]*M2CM*Resolution_);
     InitializeData();
     InitializeOrigin(origin);
 }
@@ -101,7 +105,7 @@ template<typename T>
 VoxelGrid<T>::VoxelGrid(const double origin[3], const double world_dimensions[3],const double resolution, const std::vector<T>& data)
 :Resolution_(resolution)
 {
-    for(int i =0; i<3; i++) Grid_Dimensions_[i] = (world_dimensions[i]*Resolution_);
+    for(int i =0; i<3; i++) Grid_Dimensions_[i] = static_cast<int>(world_dimensions[i]*M2CM*Resolution_);
     InitializeData(data);
     InitializeOrigin(origin);
 }
@@ -134,7 +138,7 @@ template<typename T>
 void VoxelGrid<T>::WorldToVoxel(const double xyz[3], int voxel[3])
 {
     for(int i = 0; i<3; i++){
-    float float_voxel = floor(xyz[i]*Resolution_);
+    float float_voxel = floor(xyz[i]*M2CM*Resolution_);
     voxel[i] = static_cast<int>(float_voxel);
     }
 }
@@ -144,7 +148,7 @@ void VoxelGrid<T>::WorldToGrid(const double xyz[3], int ixyz[3])
 {
     int buffer_voxel[3];
     WorldToVoxel(xyz,buffer_voxel);
-    for(int i =0; i <3; i++) ixyz[i] = buffer_voxel[i] - First_Voxel[i];   
+    for(int i =0; i <3; i++) ixyz[i] = buffer_voxel[i] - First_Voxel_[i];   
 }
 
 template<typename T>
@@ -160,13 +164,14 @@ int VoxelGrid<T>::WorldToIndex(const double xyz[3])
 template<typename T>
 void VoxelGrid<T>::VoxelToWorld(const int voxel[3], double xyz[3])
 {
-    for(int i =0; i<3 ; i++) xyz[i] = voxel[i] * Resolution_;
+    for(int i =0; i<3 ; i++) xyz[i] = ((static_cast<float>(voxel[i])) / Resolution_)*CM2M;
+    printf("%f %f %f\n",xyz[0],xyz[1],xyz[2]);
 }
 
 template<typename T>
 void VoxelGrid<T>::VoxelToGrid(const int voxel[3], int grid[3])
 {
-    for(int i=0; i<3; i++) grid[i] = voxel[i] - First_Voxel[i];
+    for(int i=0; i<3; i++) grid[i] = voxel[i] - First_Voxel_[i];
 }
 
 template<typename T>
@@ -181,14 +186,20 @@ template<typename T>
 void VoxelGrid<T>::GridToWorld(const int ixyz[3], double xyz[3])
 {
     int buffer_voxel[3];
+    printf("%d %d %d\n", ixyz[0],ixyz[1],ixyz[2]);
     GridToVoxel(ixyz,buffer_voxel);
+
     VoxelToWorld(buffer_voxel,xyz);
 }
 
 template<typename T>
 void VoxelGrid<T>::GridToVoxel(const int ixyz[3], int voxel[3])
 {   
-    for (int i = 0; i<3; i++) voxel[i] = ixyz[3] + First_Voxel[i];
+    printf("Print First Voxel %d %d %d\n", First_Voxel_[0],First_Voxel_[1],First_Voxel_[2]);
+    for (int i = 0; i<3; i++) voxel[i] = ixyz[i] + First_Voxel_[i];
+   
+    printf("%d %d %d\n", voxel[0],voxel[1],voxel[2]);
+
 }
 
 template<typename T>
@@ -212,16 +223,17 @@ void VoxelGrid<T>::IndexToVoxel(const int index, int voxel[3])
 }
 template<typename T>
 void VoxelGrid<T>::IndexToGrid(const int index, int ixyz[3])
-{
+{   
     int buffer;
     int buffer2;
     int buffer3;
-    buffer = index / Grid_Dimensions_[0]*Grid_Dimensions_[1];
+    buffer = index / (Grid_Dimensions_[0]*Grid_Dimensions_[1]);
     ixyz[2] = buffer;
-    buffer2 = index - buffer*Grid_Dimensions_[0]*Grid_Dimensions_[1];
+    buffer2 = index - (buffer*Grid_Dimensions_[0]*Grid_Dimensions_[1]);
     buffer3 = buffer2/Grid_Dimensions_[0];
-    buffer3 = ixyz[1];
+    ixyz[1] = buffer3;
     ixyz[0] = buffer2 - buffer3 * Grid_Dimensions_[0];
+    // printf("%d %d %d\n",ixyz[0],ixyz[1],ixyz[2]);
 }
 
 template<typename T>
@@ -294,9 +306,15 @@ template<typename T>
 void VoxelGrid<T>::getThreshold(const double threshold)
 {Threshold_ = threshold;}
 
+
 template<typename T>
-void VoxelGrid<T>::getGridDimesion(const double world_D[3], const double resolution)
+void VoxelGrid<T>::printFirstVoxel() const
 {
-    for(int i = 0; i<3; i++) ocgrid_.Grid_Dimensions_[i] = static_cast<int>(world_D[i]*resolution);
+    printf("%d %d %d\n",First_Voxel_[0],First_Voxel_[1],First_Voxel_[2]);
 }
+// template<typename T>
+// void VoxelGrid<T>::getGridDimesion(const double world_D[3], const double resolution)
+// {
+//     for(int i = 0; i<3; i++) ocgrid_.Grid_Dimensions_[i] = static_cast<int>(world_D[i]*resolution);
+// }
 }// namespace end
