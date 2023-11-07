@@ -107,8 +107,14 @@ void OccupancyMapServer::cloudToOcMap(const PCLPointCloud& pc)
 
     for(PCLPointCloud::const_iterator it = pc.begin(); it !=pc.end();++it ){
         pcl::PointXYZ point(it->x,it->y,it->z);
-        ocgrid_.UpdateValue(point,true);
-    }
+        if(ocgrid_.OccupancyCheck(point)) continue;
+        else ocgrid_.UpdateValue(point,true);
+    } 
+}
+
+void OccupancyMapServer::publishOCC()
+{
+    
 }
 
 

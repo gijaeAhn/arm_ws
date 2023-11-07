@@ -12,8 +12,8 @@
 
 #include "Voxel_Grid.h"
 
-// #include <pcl/conversions.h>
-// #include <pcl/point_types.h>
+#include <pcl/conversions.h>
+#include <pcl/point_types.h>
 
 
 
@@ -40,10 +40,11 @@ class OccupancyGrid : public voxelgrid::VoxelGrid<bool>
     public:
     OccupancyGrid();
     OccupancyGrid(const double origin[3], const double world_dimensions[3], const double resolution);
-    // void UpdateValue(const pcl::PointXYZ& point,bool value);
+    void UpdateValue(const pcl::PointXYZ& point,bool value);
     void UpdateValue(const double xyz[3], bool value);
     void UpdateValue(const int ixyz[3], bool value);
     void UpdateValue(const int index, bool delta);
+    bool OccupancyCheck(const pcl::PointXYZ& point);
     bool OccupancyCheck(const double xyz[3]);
     bool OccupancyCheck(const int ixyz[3]);
     bool OccupancyCheck(const int index);

@@ -7,9 +7,11 @@ OccupancyGrid::OccupancyGrid(const double origin[3], const double world_dimensio
 : voxelgrid::VoxelGrid<bool>(origin,world_dimensions,resolution)
 {}
 
-// void OccupancyGrid::UpdateValue(const pcl::PointXYZ& point, bool value)
-// {double d_point[3] = {point.x,point.y,point.z};
-// UpdateValue(d_point,value);}
+void OccupancyGrid::UpdateValue(const pcl::PointXYZ& point, bool value)
+{
+    double d_point[3] = {point.x,point.y,point.z};
+    UpdateValue(d_point,value);
+}
 
 void OccupancyGrid::UpdateValue(const double xyz[3], bool value)
 {UpdateValue(WorldToIndex(xyz),value);}
@@ -20,6 +22,11 @@ void OccupancyGrid::UpdateValue(const int ixyz[3], bool value)
 void OccupancyGrid::UpdateValue(const int index, bool value)
 {WriteValue(index,value);}
 
+bool OccupancyGrid::OccupancyCheck(const pcl::PointXYZ& point)
+{
+    double buf_xyz[3] = {point.x,point.y,point.z};
+    return OccupancyCheck(buf_xyz);
+}
 
 bool OccupancyGrid::OccupancyCheck(const double xyz[3])
 {
